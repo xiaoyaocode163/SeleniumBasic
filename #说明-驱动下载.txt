@@ -1,0 +1,35 @@
+到时把chromedriver.exe放到当前目录，要和谷歌浏览器内核版本一致。
+当前chromedriver.exe版本是： 137.0.7151.40-win64
+
+ChromeDriver 下载地址2
+https://googlechromelabs.github.io/chrome-for-testing/
+选择：chromedriver	win64（或WIN32)
+
+http://chromedriver.storage.googleapis.com/index.html
+这个地址最后版本到 114.0.5735.90  
+
+
+ChromeDriver Mirror（国内镜像）,最高版114
+https://registry.npmmirror.com/binary.html?path=chromedriver/
+
+
+http://npm.taobao.org/mirrors/chromedriver/
+CNPM Binaries Mirror
+
+=============================
+'专注VB编程开发20年 -CSDN博客
+'https://blog.csdn.net/xiaoyao961
+'
+'=========================
+'QQ: 527524938 逍遥软件
+'http://www.xiaoyaosoft.com
+'http://www.taobaosoft.com
+'新版本可以在线查找，升级
+'管理软件开发，APP开发，网页爬虫,VBA自动化
+'谁有模块要写，控件开发，网站设计，代码修改
+'程序优化提速，BUG修复
+'================
+'有需要各种模块，控件，类库，源码，可以找我
+'
+'开发语言: C# , VB.net, JAVA, VB6, VBA, Js, html, Python等
+'安卓开发：b4a,Wine跨平台运行EXE，跨平台.net程序

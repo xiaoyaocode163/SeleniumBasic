@@ -1,0 +1,69 @@
+数据采集神器组合套装
+
+SeleniumBasic2.0.9 dll+驱动+谷歌浏览器 三合一绿色版 ，解压即用，可以放到任意目录
+先运行:SeleniumBasic2.0.9安装工具.exe
+再运行：SeleniumBasic2.0.9—数据采集—爬虫测试，能打开百度页面，自动搜索点击就成功了！
+-----------------
+SeleniumBasic2.0.9 （270KB)	迷你绿色
+SeleniumBasic3.141 （1.7MB）功能更全（新版）
+=======================
+chromedriver.exe驱动：SeleniumBasic2.0.9\#说明-驱动下载.txt
+
+ SeleniumBasic相关问题请看大神的博客：
+https://www.cnblogs.com/ryueifu-VBA/category/1846536.html
+
+===================
+'专注VB编程开发20年 -CSDN博客
+'https://blog.csdn.net/xiaoyao961
+'
+'=========================
+'QQ: 527524938 逍遥软件
+'http://www.xiaoyaosoft.com
+'http://www.taobaosoft.com
+'新版本可以在线查找，升级
+'管理软件开发，APP开发，网页爬虫,VBA自动化
+'谁有模块要写，控件开发，网站设计，代码修改
+'程序优化提速，BUG修复
+'================
+'有需要各种模块，控件，类库，源码，可以找我
+'
+'开发语言: C# , VB.net, JAVA, VB6, VBA, Js, html, Python等
+'安卓开发：b4a,Wine跨平台运行EXE，跨平台.net程序
+
+Option Explicit
+'引用：Selenium32.tlb
+  
+Dim cd As ChromeDriver
+Dim edge As EdgeDriver
+
+Sub 测试1(ChromeExe As String)     '工具引用Selenium   第一种通过ID
+    'Set cd = New ChromeDriver
+    Set cd = CreateObject("Selenium.ChromeDriver")
+   
+    'SetBinary,很重要，设置谷歌浏览器的路径
+    'ChromeExe = App.Path & "\ChromeExe\137.0.7151.40X64\chrome.exe"
+    If ChromeExe <> "" Then
+        If Dir(ChromeExe) <> "" Then
+            cd.SetBinary ChromeExe
+        Else
+            MsgBox "找不到" & ChromeExe, , "找不到chrome.exe"
+        End If
+    End If
+         
+    cd.Start
+    cd.Get "https://www.baidu.com/"
+    cd.Wait 1000
+    cd.FindElementById("kw").SendKeys ("游戏") '方法2 分2部 先发送 再按百度按钮
+    cd.FindElementById("su").Click '点击按钮
+    DoEvents
+    MsgBox cd.FindElementById("kw").Value '输出结果 有的是text这个自己测试
+    'cd.Quit
+End Sub
+
+EXCEL调用：
+  Call 测试1(Application.ActiveWorkbook.Path & "\Chrome\137.0.7151.40X64\chrome.exe")
+
+VB6调用：
+call 测试1 (App.Path & "\Chrome\137.0.7151.40X64\chrome.exe")
+ 
+'来源：https://github.com/florentbr/SeleniumBasic/releases/tag/v2.0.9.0

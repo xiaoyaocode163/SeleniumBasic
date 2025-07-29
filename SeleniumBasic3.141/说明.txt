@@ -1,0 +1,39 @@
+
+
+2025-1-14 
+Rem 请手动添加引用 SeleniumBasic.tlb
+Option Explicit
+Private WD As SeleniumBasic.IWebDriver
+
+Sub Baidu()
+    On Error GoTo Err1
+    Dim Service As SeleniumBasic.ChromeDriverService
+    Dim Options As SeleniumBasic.ChromeOptions
+    Set WD = New SeleniumBasic.IWebDriver
+    Set Service = New SeleniumBasic.ChromeDriverService
+    With Service
+        .CreateDefaultService driverPath:="D:\Chrome-Selenium"
+        .HideCommandPromptWindow = True
+    End With
+    Set Options = New SeleniumBasic.ChromeOptions
+    With Options
+        .BinaryLocation = "D:\Chrome-Selenium\Chrome-bin\chrome.exe"
+    End With
+    WD.New_ChromeDriver Service:=Service, Options:=Options
+    WD.URL = "https://www.baidu.com"
+    Dim keyword As SeleniumBasic.IWebElement
+    Dim button As SeleniumBasic.IWebElement
+    Set keyword = WD.FindElementById("kw")
+    keyword.Clear
+    keyword.SendKeys "逍遥软件"
+    Set button = WD.FindElementById("su")
+    button.Click
+    Debug.Print WD.Title, WD.URL
+    Exit Sub
+Err1:
+    MsgBox Err.Description, vbCritical
+End Sub
+
+Sub Quit()
+    WD.Quit
+End Sub
